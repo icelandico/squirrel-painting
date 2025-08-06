@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap");
+:root {
+  font-family: "Nata Sans", sans-serif;
+}
+
+@theme {
+  --color-primary-red: #dc4339;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  h1 {
+    @apply text-4xl;
+    @apply font-bold;
+  }
+  h2 {
+    @apply text-3xl;
+    @apply font-bold;
+  }
+  h3 {
+    @apply text-2xl;
+    @apply font-bold;
+  }
+  h4 {
+    @apply text-xl;
+    @apply font-semibold;
+  }
+  h5 {
+    @apply text-lg;
+    @apply font-semibold;
+  }
+  h6 {
+    @apply text-sm;
+    @apply font-semibold;
+  }
+}
+
+.nav-icon {
+  bottom: 75%;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.active-nav .nav-icon {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.carousel-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.carousel-content {
+  max-width: 1400px;
+  overflow-x: hidden; /* VERY IMPORTANT: We rely on scrolling so we hide the overflow */
+  scroll-behavior: smooth;
+}
+
+.carousel-content > * {
+  flex: 0 0 auto;
+  margin-right: 50px;
+}
+
+.carousel-content > :last-child {
+  margin-right: 0;
+}
+
+.carousel-arrow.inactive {
+  filter: grayscale(1);
+  pointer-events: none;
+}

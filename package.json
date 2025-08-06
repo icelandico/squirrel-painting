@@ -1,0 +1,25 @@
+{
+  "name": "hella-simple-eleventy-tailwind-starter",
+  "description": "Hella Simple Eleventy + Tailwind Starter",
+  "scripts": {
+    "serve": "npx @11ty/eleventy --serve --quiet & npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --watch",
+    "build": "rm -rf _site && ELEVENTY_ENV=production npx @11ty/eleventy && npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --minify"
+  },
+  "keywords": [
+    "eleventy",
+    "tailwindcss",
+    "starter"
+  ],
+  "author": "Marcel Appelman",
+  "license": "MIT",
+  "type": "module",
+  "browserslist": "defaults, not ie <= 11",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/cli": "^4.1.5",
+    "tailwindcss": "^4.1.5"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^6.0.4"
+  }
+}
