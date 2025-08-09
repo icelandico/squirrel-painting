@@ -3,7 +3,8 @@
   "description": "Hella Simple Eleventy + Tailwind Starter",
   "scripts": {
     "serve": "npx @11ty/eleventy --serve --quiet & npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --watch",
-    "build": "rm -rf _site && ELEVENTY_ENV=production npx @11ty/eleventy && npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --minify"
+    "build": "rm -rf _site && ELEVENTY_ENV=production npx @11ty/eleventy && npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --minify",
+    "build-ghpages": "npx @11ty/eleventy --pathprefix=/icelandico/landing-florist-1/"
   },
   "keywords": [
     "eleventy",
