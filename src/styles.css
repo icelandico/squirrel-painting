@@ -8,8 +8,17 @@
   --color-primary-red: #dc4339;
 }
 
-html {
-  scroll-behavior: smooth;
+svg,
+video {
+  height: 100%;
+  width: 100%;
+}
+
+video {
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
 }
 
 @layer components {
@@ -60,7 +69,7 @@ html {
 
 .carousel-content {
   max-width: 1400px;
-  overflow-x: hidden; /* VERY IMPORTANT: We rely on scrolling so we hide the overflow */
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -76,4 +85,20 @@ html {
 .carousel-arrow.inactive {
   filter: grayscale(1);
   pointer-events: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-icon {
+    bottom: -75%;
+    opacity: 0;
+    transform: translateY(-300%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    height: 15px;
+    width: 15px;
+  }
+
+  .active-nav .nav-icon {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
 }

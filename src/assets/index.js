@@ -1,5 +1,16 @@
+const windowWidth = window.innerWidth;
+const MOBILE_BREAKPOINT = 1024;
+const SMALL_SCREEN_BREAKPOINT = 768;
+
+const MOBILE_NAV_ID = "#main-nav-mobile";
+const DESKTOP_NAV_ID = "#main-nav";
+
+const navId = windowWidth < MOBILE_BREAKPOINT ? MOBILE_NAV_ID : DESKTOP_NAV_ID;
+
 document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll("#main-nav a");
+  const navLinks = document.querySelectorAll(`${navId} a`);
+
+  console.log("navLinks", navLinks);
   const sections = [];
 
   navLinks.forEach((link) => {
@@ -21,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
-      const navLink = document.querySelector(`a[href="#${id}"]`);
-
+      const navLink = document.querySelector(`${navId} a[href="#${id}"]`);
       if (entry.isIntersecting) {
+        console.log("intersecting", navLink);
         navLink.parentElement.classList.add("active-nav");
       } else {
         navLink.parentElement.classList.remove("active-nav");
@@ -37,12 +48,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const getVisibleImagesCount = () => {
-  const windowWidth = window.innerWidth;
   if (windowWidth >= 1024) {
     return 3;
   }
   return 1;
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+  const offset = windowWidth <= 768 ? 70 : 0;
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const targetId = link.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        const targetPosition = targetElement.offsetTop - offset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+});
 
 class Carousel {
   constructor(element) {
