@@ -74,7 +74,7 @@ video {
 }
 
 .carousel-content > * {
-  flex: 0 0 33.3333%; /* exactly 1/3 width */
+  flex: 0 0 33.3333%;
   margin-right: 0;
 }
 
