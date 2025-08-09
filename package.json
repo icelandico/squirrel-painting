@@ -3,8 +3,7 @@
   "description": "Hella Simple Eleventy + Tailwind Starter",
   "scripts": {
     "serve": "npx @11ty/eleventy --serve --quiet & npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --watch",
-    "build": "rm -rf _site && ELEVENTY_ENV=production npx @11ty/eleventy && npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --minify",
-    "deploy": "npm run build && npx gh-pages -d _site"
+    "build": "rm -rf _site && ELEVENTY_ENV=production npx @11ty/eleventy && npx @tailwindcss/cli -i ./src/styles.css -o ./_site/tailwind.css --minify"
   },
   "keywords": [
     "eleventy",
