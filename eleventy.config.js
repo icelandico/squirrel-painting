@@ -2,6 +2,7 @@ import Image, { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/tailwind.css");
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     sharpOptions: {
