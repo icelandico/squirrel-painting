@@ -26,5 +26,6 @@ export default function (eleventyConfig) {
       input: "src",
       output: "_site",
     },
+    pathPrefix: "/landing-florist-1/",
   };
 }
