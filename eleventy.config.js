@@ -2,7 +2,6 @@ import Image, { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/styles.css");
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     sharpOptions: {
@@ -27,6 +26,5 @@ export default function (eleventyConfig) {
       input: "src",
       output: "_site",
     },
-    pathPrefix: "/",
   };
 }
