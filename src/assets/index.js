@@ -143,6 +143,7 @@ const handleSubmit = (event) => {
       const email = document.getElementById("email");
       const message = document.getElementById("message");
       const datePlace = document.getElementById("date-place");
+      const phone = document.getElementById("phone");
 
       const successMessage = document.querySelector(".form-submit-success");
 
@@ -150,6 +151,8 @@ const handleSubmit = (event) => {
       name.value = "";
       email.value = "";
       message.value = "";
+      datePlace.value = "";
+      phone.value = "";
     })
     .catch((error) => alert(error));
 };
