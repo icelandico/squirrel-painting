@@ -106,8 +106,16 @@ function handleMainNavVisibility() {
 hmbButton.addEventListener("click", () => {
   hmbButton.classList.toggle("active");
   mobileMenu.classList.toggle("active");
-  disableScroll();
+  if (isScrollDisabled()) {
+    enableScroll();
+  } else {
+    disableScroll();
+  }
 });
+
+function isScrollDisabled() {
+  return document.documentElement.style.overflow === "hidden";
+}
 
 function disableScroll() {
   document.documentElement.style.overflow = "hidden";
