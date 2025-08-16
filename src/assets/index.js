@@ -82,20 +82,18 @@ document.addEventListener("DOMContentLoaded", () => {
 /* Toggle navbar visibility */
 
 let timeout;
-// window.addEventListener("scroll", () => {
-//   clearTimeout(timeout);
-//   timeout = setTimeout(() => {
-//     if (window.scrollY > 150) {
-//       console.log("HIDE", window.scrollY);
-//       navbarLogoSection.classList.add("max-h-0", "opacity-0");
-//       navbarLogoSection.classList.remove("max-h-[250px]", "opacity-100");
-//     } else {
-//       console.log("SHOW", window.scrollY);
-//       navbarLogoSection.classList.remove("max-h-0", "opacity-0");
-//       navbarLogoSection.classList.add("max-h-[250px]", "opacity-100");
-//     }
-//   }, 150);
-// });
+window.addEventListener("scroll", () => {
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    if (window.scrollY > 15) {
+      navbarLogoSection.classList.add("max-h-0", "opacity-0");
+      navbarLogoSection.classList.remove("max-h-[180px]", "opacity-100");
+    } else {
+      navbarLogoSection.classList.remove("max-h-0", "opacity-0");
+      navbarLogoSection.classList.add("max-h-[180px]", "opacity-100");
+    }
+  }, 150);
+});
 
 /* Toggle mobile menu visibility */
 
