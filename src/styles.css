@@ -241,3 +241,7 @@ video {
 .form-submit-success {
   display: none;
 }
+
+.visible {
+  display: block;
+}
