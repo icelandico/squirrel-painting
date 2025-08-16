@@ -42,9 +42,6 @@
           id="phone"
           name="phone"
           placeholder="Twój telefon (opcjonalnie)"
-          required
-          oninvalid="this.setCustomValidity('To pole nie może być puste')"
-          onchange="this.setCustomValidity('')"
         >
       </div>
     </div>
@@ -63,9 +60,9 @@
       type="submit"
       class="block h-[65px] w-[250px] m-auto p-2 text-2xl px-8 bg-primary-pink border-none cursor-pointer rounded-2xl hover:bg-dark-primary hover:text-primary-green-300">{{ site.form.send }}
     </button>
-    {# <p class="font-bold text-2xl my-4 form-submit-success">
+    <p class="font-bold text-2xl my-4 form-submit-success">
       Wiadomość wysłana, dziękujemy!
-    </p> #}
+    </p>
   </form>
     <div class="flex flex-col lg:flex-row gap-8 justify-between my-16 lg:my-32">
       <div class="flex flex-col gap-4 items-center font-[Nova_Slim]">

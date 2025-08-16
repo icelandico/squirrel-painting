@@ -237,3 +237,7 @@ video {
   height: 100%;
   object-fit: contain;
 }
+
+.form-submit-success {
+  display: none;
+}

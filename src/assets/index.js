@@ -11,6 +11,8 @@ const mobileMenu = document.querySelector(".mobile-menu-container");
 
 const navId = windowWidth < MOBILE_BREAKPOINT ? MOBILE_NAV_ID : DESKTOP_NAV_ID;
 
+/* Set active sction */
+
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(`${navId} a`);
   const sections = [];
@@ -48,13 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const getVisibleImagesCount = () => {
-  if (windowWidth >= 1024) {
-    return 3;
-  }
-  return 1;
-};
-
 document.addEventListener("DOMContentLoaded", () => {
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
   const isMobile = windowWidth < MOBILE_BREAKPOINT;
@@ -84,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* Toggle navbar visibility */
+
 let timeout;
 window.addEventListener("scroll", () => {
   clearTimeout(timeout);
@@ -98,7 +95,42 @@ window.addEventListener("scroll", () => {
   }, 100);
 });
 
+/* Toggle mobile menu visibility */
+
 hmbButton.addEventListener("click", () => {
   hmbButton.classList.toggle("active");
   mobileMenu.classList.toggle("active");
 });
+
+/* Form submit */
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => {
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+      const datePlace = document.getElementById("date-place");
+
+      const successMessage = document.querySelector(".form-submit-success");
+
+      successMessage.classList.add("visible");
+      name.value = "";
+      email.value = "";
+      message.value = "";
+    })
+    .catch((error) => alert(error));
+};
+
+document
+  .querySelector("#contact-form")
+  .addEventListener("submit", handleSubmit);
