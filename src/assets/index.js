@@ -8,6 +8,7 @@ const navbarLogoSection = document.querySelector(".logo-section");
 let navbarHidden = false;
 const hmbButton = document.querySelector(".hmb-container");
 const mobileMenu = document.querySelector(".mobile-menu-container");
+const isMobile = windowWidth < MOBILE_BREAKPOINT;
 
 const navId = windowWidth < MOBILE_BREAKPOINT ? MOBILE_NAV_ID : DESKTOP_NAV_ID;
 
@@ -52,13 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  const isMobile = windowWidth < MOBILE_BREAKPOINT;
 
   const offset = isMobile ? -50 : 10;
 
   anchorLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       if (isMobile) {
+        enableScroll();
         hmbButton.classList.remove("active");
         mobileMenu.classList.remove("active");
       }
@@ -81,26 +82,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* Toggle navbar visibility */
 
-let timeout;
-window.addEventListener("scroll", () => {
-  clearTimeout(timeout);
-  timeout = setTimeout(() => {
-    if (window.scrollY > 15) {
-      navbarLogoSection.classList.add("max-h-0", "opacity-0");
-      navbarLogoSection.classList.remove("max-h-[180px]", "opacity-100");
-    } else {
-      navbarLogoSection.classList.remove("max-h-0", "opacity-0");
-      navbarLogoSection.classList.add("max-h-[180px]", "opacity-100");
-    }
-  }, 150);
-});
+function handleMainNavVisibility() {
+  if (isMobile) return;
+  let timeout;
+
+  window.addEventListener("scroll", () => {
+    if (isMobile) return;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      if (window.scrollY > 15) {
+        navbarLogoSection.classList.add("max-h-0", "opacity-0");
+        navbarLogoSection.classList.remove("max-h-[180px]", "opacity-100");
+      } else {
+        navbarLogoSection.classList.remove("max-h-0", "opacity-0");
+        navbarLogoSection.classList.add("max-h-[180px]", "opacity-100");
+      }
+    }, 150);
+  });
+}
 
 /* Toggle mobile menu visibility */
 
 hmbButton.addEventListener("click", () => {
   hmbButton.classList.toggle("active");
   mobileMenu.classList.toggle("active");
+  disableScroll();
 });
+
+function disableScroll() {
+  document.documentElement.style.overflow = "hidden";
+}
+
+function enableScroll() {
+  document.documentElement.style.overflow = "auto";
+}
 
 /* Form submit */
 
@@ -134,3 +149,5 @@ const handleSubmit = (event) => {
 document
   .querySelector("#contact-form")
   .addEventListener("submit", handleSubmit);
+
+handleMainNavVisibility();
