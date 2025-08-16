@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const observerOptions = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.5,
+    threshold: 0.65,
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -82,24 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* Toggle navbar visibility */
 
-function handleMainNavVisibility() {
-  if (isMobile) return;
-  let timeout;
+// function handleMainNavVisibility() {
+//   if (isMobile) return;
+//   let timeout;
 
-  window.addEventListener("scroll", () => {
-    if (isMobile) return;
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      if (window.scrollY > 15) {
-        navbarLogoSection.classList.add("max-h-0", "opacity-0");
-        navbarLogoSection.classList.remove("max-h-[180px]", "opacity-100");
-      } else {
-        navbarLogoSection.classList.remove("max-h-0", "opacity-0");
-        navbarLogoSection.classList.add("max-h-[180px]", "opacity-100");
-      }
-    }, 150);
-  });
-}
+//   window.addEventListener("scroll", () => {
+//     if (isMobile) return;
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => {
+//       if (window.scrollY > 15) {
+//         navbarLogoSection.classList.add("max-h-0", "opacity-0");
+//         navbarLogoSection.classList.remove("max-h-[180px]", "opacity-100");
+//       } else {
+//         navbarLogoSection.classList.remove("max-h-0", "opacity-0");
+//         navbarLogoSection.classList.add("max-h-[180px]", "opacity-100");
+//       }
+//     }, 150);
+//   });
+// }
 
 /* Toggle mobile menu visibility */
 
@@ -158,4 +158,4 @@ document
   .querySelector("#contact-form")
   .addEventListener("submit", handleSubmit);
 
-handleMainNavVisibility();
+// handleMainNavVisibility();
