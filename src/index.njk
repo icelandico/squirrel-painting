@@ -5,17 +5,22 @@ description: "Lorem ipsum wiewiorex."
 script: index.js
 ---
 <main class="flex-grow">
-  <section id="about">
+  <section class="relative" id="about">
     {% include "section-about.njk" %}
+    <div class="absolute top-0 right-0 bg-primary-pink w-1/3 h-full -z-1"></div>
+    {# <div class="half-oval"></div> #}
   </section>
-  <section id="services">
+  <section class="relative" id="services">
     {% include "section-services.njk" %}
+    <div class="absolute top-0 right-0 bg-primary-pink w-1/3 h-full -z-1"></div>
   </section>
-    <section id="gallery">
+  <section class="relative" id="gallery">
     {% include "section-gallery.njk" %}
+    <div class="absolute top-0 right-0 bg-primary-pink w-1/3 h-full -z-1"></div>
   </section>
-  <section id="cooperation">
+  <section class="relative" id="cooperation">
     {% include "section-cooperation.njk" %}
+    <div class="absolute top-0 right-0 bg-primary-pink w-1/3 h-1/2 -z-1"></div>
   </section>
   <section id="contact">
     {% include "section-contact.njk" %}

@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
   const isMobile = windowWidth < MOBILE_BREAKPOINT;
 
-  const offset = isMobile ? 50 : 120;
+  const offset = isMobile ? -50 : 10;
 
   anchorLinks.forEach((link) => {
     link.addEventListener("click", (event) => {

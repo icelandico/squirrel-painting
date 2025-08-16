@@ -245,3 +245,14 @@ video {
 .visible {
   display: block;
 }
+
+.half-oval {
+  position: absolute;
+  top: -175px;
+  right: 0;
+  height: 33%;
+  width: 33.33%; /* Or any other width, e.g., 50% */
+  background-color: var(--color-primary-pink);
+  border-radius: 33% 33% 0 0;
+  z-index: 50;
+}
