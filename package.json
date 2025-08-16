@@ -1,6 +1,6 @@
 {
-  "name": "hella-simple-eleventy-tailwind-starter",
-  "description": "Hella Simple Eleventy + Tailwind Starter",
+  "name": "Wiewiorex",
+  "description": "Wiewiorex",
   "scripts": {
     "serve": "npx @11ty/eleventy --serve --quiet & npx @tailwindcss/cli -i ./src/styles.css -o ./_site/styles.css --watch",
     "build": "rm -rf _site && npx tailwindcss -i ./src/styles.css -o ./_site/tailwind.css --minify && ELEVENTY_ENV=production npx @11ty/eleventy"
@@ -10,7 +10,6 @@
     "tailwindcss",
     "starter"
   ],
-  "author": "Marcel Appelman",
   "license": "MIT",
   "type": "module",
   "browserslist": "defaults, not ie <= 11",

@@ -1,25 +1,90 @@
-<div class="flex flex-col lg:flex-row lg:gap-8 justify-between lg:h-screen p-4 lg:p-8">
-  <div class="basis-3/4 flex flex-col items-center py-8 lg:py-32 relative">
-    <p class="text-2xl">
-      Jesteśmy dla Was dostępni:
-      <br/>
-      <br/>
-      <p class="text-2xl font-bold">pon.-pt.: 9:00-19:00</p>
-      <p class="text-2xl font-bold">sb.-ndz.: 10:00-15:00</p>
-    </p>
-    <br/>
-    <p class="text-2xl">
-      przy ulicy
-      <p class="font-bold text-2xl">Gdańskiej 22 w Bydgoszczy</p>
-    </p>
-    <br/>
-    <p class="text-2xl">
-      oraz pod nr tel.
-      <p class="font-bold text-2xl">+48 600 700 800</p>
-    </p>
-    <img src="./assets/flower.svg" alt="flower icon" width="45" height="45" class="hidden lg:block top-3/4 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  </div>
-  <div>
-    <img class="h-full w-full object-cover" src="./assets/kontakt.webp" alt="Violet flowers">
-  </div>
+<div class="mx-4 lg:mx-auto lg:w-3/5 mt-24">
+  <h2>Zapraszam do kontaktu!</h2>
+  <p>Chętnie odpowiem na wszystkie Wasze pytania</p>
+  <form name="contact" netlify id="contact-form">
+    <div class="flex flex-col lg:flex-row w-full gap-4 lg:gap-8 mb-4">
+      <div class="flex flex-col gap-4 lg:basis-1/2">
+        <input
+          class="w-full border-none bg-primary-pink placeholder-black pl-4 h-[50px] rounded-2xl focus:outline-primary-orange"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Twoje imię"
+          required
+          oninvalid="this.setCustomValidity('To pole nie może być puste')"
+          onchange="this.setCustomValidity('')"
+        >
+        <input
+          class="w-full border-none bg-primary-pink placeholder-black rounded-2xl pl-4 h-[50px] focus:outline-primary-orange"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Twój adres email"
+          required
+          oninvalid="this.setCustomValidity('To pole nie może być puste')"
+          onchange="this.setCustomValidity('')"
+        >
+      </div>
+      <div class="flex flex-col gap-4 lg:basis-1/2">
+        <input
+          class="w-full border-none bg-primary-pink placeholder-black pl-4 h-[50px] rounded-2xl focus:outline-primary-orange"
+          type="text"
+          id="date-place"
+          name="date-place"
+          placeholder="Data i miejsce uroczystości"
+          required
+          oninvalid="this.setCustomValidity('To pole nie może być puste')"
+          onchange="this.setCustomValidity('')"
+        >
+        <input
+          class="w-full border-none bg-primary-pink placeholder-black rounded-2xl pl-4 h-[50px] focus:outline-primary-orange"
+          type="phone"
+          id="phone"
+          name="phone"
+          placeholder="Twój telefon (opcjonalnie)"
+          required
+          oninvalid="this.setCustomValidity('To pole nie może być puste')"
+          onchange="this.setCustomValidity('')"
+        >
+      </div>
+    </div>
+    <textarea
+      placeholder="Treść wiadomości"
+      class="w-full bg-primary-pink placeholder-black rounded pl-4 py-4 rounded-2xl mb-8 focus:outline-primary-orange"
+      id="message"
+      name="message"
+      rows="10"
+      cols="10"
+      required
+      oninvalid="this.setCustomValidity('To pole nie może być puste')"
+      onchange="this.setCustomValidity('')"
+      ></textarea>
+    <button
+      type="submit"
+      class="block h-[65px] w-[250px] m-auto p-2 text-2xl px-8 bg-primary-pink border-none cursor-pointer rounded-2xl hover:bg-dark-primary hover:text-primary-green-300">{{ site.form.send }}
+    </button>
+    {# <p class="font-bold text-2xl my-4 form-submit-success">
+      Wiadomość wysłana, dziękujemy!
+    </p> #}
+  </form>
+    <div class="flex flex-col lg:flex-row gap-8 justify-between my-16 lg:my-32">
+      <div class="flex flex-col gap-4 items-center font-[Nova_Slim]">
+        <div class="w-[80px] h-[80px] rounded-full bg-primary-orange p-4 text-white">
+          {% svgIcon 'phone.svg' %}
+        </div>
+        <a href="tel:+48553508410" class="text-2xl cursor-pointer">+48 553 508 410</a>
+      </div>
+      <div class="flex flex-col gap-4 items-center font-[Nova_Slim]">
+        <div class="w-[80px] h-[80px] rounded-full bg-primary-orange p-4 text-white">
+          {% svgIcon 'mail.svg' %}
+        </div>
+        <a href="mailto:wiewiorex@squirrel.com" class="text-2xl cursor-pointer">wiewiorex@squirrel.com</a>
+      </div>
+      <div class="flex flex-col gap-4 items-center font-[Nova_Slim] fill-white">
+        <div class="w-[80px] h-[80px] rounded-full bg-primary-orange p-4 text-white">
+          {% svgIcon 'instagram.svg' %}
+        </div>
+        <a href="https://www.saveoursquirrels.org.uk/" target="_blank" class="text-2xl cursor-pointer">wiewiorex_live_squirrel</a>
+      </div>
+    </div>
 </div>

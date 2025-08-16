@@ -1,41 +1,25 @@
-<nav class="hidden lg:block lg:sticky top-0 z-50 bg-white">
-  <div class="flex items-center justify-between h-[80px] w-full pt-8 px-8">
-    <div class="flex items-center gap-4">
-      <div class="cursor-pointer w-[30px] h-[30px]">
-        {% svgIcon 'facebook.svg' %}
-      </div>
-      <div class="cursor-pointer w-[30px] h-[30px]">
-        {% svgIcon 'instagram.svg' %}
-      </div>
-      <div><a href="tel:+48 600 700 800">tel.: +48 600 700 800</a></div>
-    </div>
-    <div class="">
-      <ul class="flex items-center gap-4 text-xl" id="main-nav">
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#about">o florze</a>
-        </li>
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#services">usługi</a>
-        </li>
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#gallery">galeria</a>
-        </li>
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#contact">kontakt</a>
-        </li>
-      </ul>
-    </div>
+<nav class="hidden lg:block lg:sticky top-0 z-50 bg-white" id="main-nav">
+  <div class="max-h-[250px] flex flex-col items-center logo-section transition-all duration-500 ease-in-out overflow-hidden">
+    <div class="my-8 w-[170px] h-[130px] border rounded-2xl">LOGO</div>
+    <p class="font-[Nova_Slim] text-2xl">buda kawa art cafe</p>
+  </div>
+  <div class="flex items-center w-3/4 h-[80px] m-auto py-4">
+    <ul class="flex justify-center items-center gap-16 w-full text-xl">
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#about">JAK TO WYGLĄDA</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#services">OFERTA</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#gallery">REALIZACJE</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#cooperation">WSPÓŁPRACA</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#contact">KONTAKT</a>
+      </li>
+    </ul>
   </div>
 </nav>

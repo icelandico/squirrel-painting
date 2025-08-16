@@ -4,13 +4,15 @@ const SMALL_SCREEN_BREAKPOINT = 768;
 
 const MOBILE_NAV_ID = "#main-nav-mobile";
 const DESKTOP_NAV_ID = "#main-nav";
+const navbarLogoSection = document.querySelector(".logo-section");
+let navbarHidden = false;
+const hmbButton = document.querySelector(".hmb-container");
+const mobileMenu = document.querySelector(".mobile-menu-container");
 
 const navId = windowWidth < MOBILE_BREAKPOINT ? MOBILE_NAV_ID : DESKTOP_NAV_ID;
 
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(`${navId} a`);
-
-  console.log("navLinks", navLinks);
   const sections = [];
 
   navLinks.forEach((link) => {
@@ -34,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = entry.target.getAttribute("id");
       const navLink = document.querySelector(`${navId} a[href="#${id}"]`);
       if (entry.isIntersecting) {
-        console.log("intersecting", navLink);
         navLink.parentElement.classList.add("active-nav");
       } else {
         navLink.parentElement.classList.remove("active-nav");
@@ -56,11 +57,16 @@ const getVisibleImagesCount = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  const isMobile = windowWidth < MOBILE_BREAKPOINT;
 
-  const offset = windowWidth <= 768 ? 70 : 0;
+  const offset = isMobile ? 50 : 120;
 
   anchorLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
+      if (isMobile) {
+        hmbButton.classList.remove("active");
+        mobileMenu.classList.remove("active");
+      }
       event.preventDefault();
 
       const targetId = link.getAttribute("href");
@@ -78,59 +84,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-class Carousel {
-  constructor(element) {
-    this.content = element.querySelector(".carousel-content");
-    this.elements = Array.from(this.content.children);
-    this.elementsLength = this.elements.length;
-    this.arrowLeft = element.querySelector(".carousel-arrow-left");
-    this.arrowRight = element.querySelector(".carousel-arrow-right");
-    this.activeElement = 0;
-    this.updateArrowStates();
-  }
-
-  activateElement(n) {
-    if (n < 0 || n >= this.elementsLength) {
-      return;
-    }
-    this.activeElement = n;
-
-    const elementToScrollTo = this.elements[n];
-
-    this.content.scrollTo({
-      left: elementToScrollTo.offsetLeft - this.content.offsetLeft,
-      behavior: "smooth",
-    });
-
-    this.updateArrowStates();
-  }
-
-  updateArrowStates() {
-    const visibleImages = getVisibleImagesCount();
-
-    if (this.activeElement <= 0) {
-      this.arrowLeft.classList.add("inactive");
+let timeout;
+window.addEventListener("scroll", () => {
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    if (window.scrollY > 20) {
+      navbarLogoSection.classList.add("max-h-0", "opacity-0");
+      navbarLogoSection.classList.remove("max-h-[250px]", "opacity-100");
     } else {
-      this.arrowLeft.classList.remove("inactive");
+      navbarLogoSection.classList.remove("max-h-0", "opacity-0");
+      navbarLogoSection.classList.add("max-h-[250px]", "opacity-100");
     }
+  }, 100);
+});
 
-    if (this.activeElement >= this.elementsLength - visibleImages) {
-      this.arrowRight.classList.add("inactive");
-    } else {
-      this.arrowRight.classList.remove("inactive");
-    }
-  }
-
-  addEventListeners() {
-    this.arrowLeft.addEventListener("click", () => {
-      this.activateElement(this.activeElement - 1);
-    });
-
-    this.arrowRight.addEventListener("click", () => {
-      this.activateElement(this.activeElement + 1);
-    });
-  }
-}
-
-const carousel = document.getElementById("carousel");
-new Carousel(carousel).addEventListeners();
+hmbButton.addEventListener("click", () => {
+  hmbButton.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+});

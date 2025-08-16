@@ -1,41 +1,30 @@
-<nav class="sticky top-0 z-50 lg:hidden bg-white shadow-md">
-  <div class="flex flex-col items-center justify-between h-[90px] px-4">
-    <div class="flex items-center gap-4 py-2">
-      <div class="cursor-pointer w-[20px] h-[20px]">
-        {% svgIcon 'instagram.svg' %}
-      </div>
-      <div class="cursor-pointer w-[20px] h-[20px]">
-        {% svgIcon 'facebook.svg' %}
-      </div>
-      <div><a href="tel:600 700 800">tel.: +48 600 700 800</a></div>
+<nav class="sticky lg:hidden top-0 z-50 bg-white" id="main-nav-mobile">
+  <div class="max-h-[50px] flex gap-4 justify-center items-center logo-section transition-all duration-500 ease-in-out overflow-hidden py-2">
+    <div class="w-[50px] border rounded-2xl">LOGO</div>
+    <p class="font-[Nova_Slim] text-xl m-0">szmudart</p>
+    <div class="absolute hmb-container">
+      <span class="hmb-line"></span>
+      <span class="hmb-line"></span>
+      <span class="hmb-line"></span>
     </div>
-    <div class="pb-4">
-      <ul class="flex items-center justify-center gap-8 text-xl" id="main-nav-mobile">
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 -translate-x-1/2 translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#about">o florze</a>
-        </li>
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 transform -translate-x-1/2 translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#services">usługi</a>
-        </li>
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 transform -translate-x-1/2 translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#gallery">galeria</a>
-        </li>
-        <li class="cursor-pointer relative hover:text-primary-red">
-          <span class="nav-icon absolute left-1/2 transform -translate-x-1/2 translate-y-1/2">
-            {% svgIcon 'flower.svg' %}
-          </span>
-          <a href="#contact">kontakt</a>
-        </li>
-      </ul>
-    </div>
+  </div>
+  <div class="mobile-menu-container">
+    <ul class="mobile-menu-items flex flex-col justify-center items-center gap-8 w-full text-xl" >
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#about">JAK TO WYGLĄDA</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#services">OFERTA</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#gallery">REALIZACJE</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#cooperation">WSPÓŁPRACA</a>
+      </li>
+      <li class="menu-item cursor-pointer relative hover:text-primary-orange">
+        <a href="#contact">KONTAKT</a>
+      </li>
+    </ul>
   </div>
 </nav>
