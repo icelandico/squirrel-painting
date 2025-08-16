@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const observerOptions = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.65,
+    threshold: isMobile ? 0.2 : 0.65,
   };
 
   const observer = new IntersectionObserver((entries) => {
